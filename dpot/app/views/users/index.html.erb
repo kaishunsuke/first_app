@@ -1,0 +1,32 @@
+<h1><%= image_tag"bloomer_logo_new_03.png"%></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Password</th>
+      <th>Creditcardnumber</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account %></td>
+        <td><%= user.password %></td>
+        <td><%= user.creditcardnumber %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規アカウント作成', new_user_path %>
